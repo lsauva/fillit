@@ -6,7 +6,7 @@
 /*   By: lsauvage <lsauvage@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/08 17:23:49 by lsauvage          #+#    #+#             */
-/*   Updated: 2017/12/08 17:43:14 by lsauvage         ###   ########.fr       */
+/*   Updated: 2017/12/20 12:35:26 by lsauvage         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 ** Creation d'une structure point. abscisse x, ordonnee y.
 */
 
-t_point			*point_new(int x, int y)
+t_point	*point_new(int x, int y)
 {
-	t_point		*point;
+	t_point	*point;
 
 	point = ft_memalloc(sizeof(t_point));
 	point->x = x;
@@ -31,9 +31,9 @@ t_point			*point_new(int x, int y)
 ** Creation d'une structure tetrimino.
 */
 
-t_etris			*tetris_new(char **pos, int width, int height, char value)
+t_etris	*tetris_new(char **pos, int width, int height, char value)
 {
-	t_etris		*tetris;
+	t_etris	*tetris;
 
 	tetris = ft_memalloc(sizeof(t_etris));
 	tetris->pos = pos;
@@ -47,9 +47,9 @@ t_etris			*tetris_new(char **pos, int width, int height, char value)
 ** Libere l'espace memoire d'un tetrimino.
 */
 
-void			free_tetris(t_etris *tetris)
+void	free_tetris(t_etris *tetris)
 {
-	int			y;
+	int	y;
 
 	y = 0;
 	while (y < tetris->height)
@@ -65,10 +65,10 @@ void			free_tetris(t_etris *tetris)
 ** Libere l'espacememoire d'une liste cree avec read_tetri
 */
 
-t_list			*free_list(t_list *list)
+t_list	*free_list(t_list *list)
 {
-	t_etris		*tetris;
-	t_list		*next;
+	t_etris	*tetris;
+	t_list	*next;
 
 	while (list)
 	{
