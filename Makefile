@@ -6,7 +6,7 @@
 #    By: lsauvage <lsauvage@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/30 16:45:25 by lsauvage          #+#    #+#              #
-#    Updated: 2017/12/01 17:20:48 by lsauvage         ###   ########.fr        #
+#    Updated: 2018/01/12 17:17:34 by lsauvage         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = fillit
 
 CC = gcc
 
-SRC = srcs/main.c srcs/...
+SRC = srcs/main.c srcs/map.c srcs/reader.c srcs/solver.c srcs/tetrimino.c
 
 OBJ = $(SRC:.c=.o)
 
