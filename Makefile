@@ -6,7 +6,7 @@
 #    By: lsauvage <lsauvage@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/30 16:45:25 by lsauvage          #+#    #+#              #
-#    Updated: 2018/01/18 15:16:11 by lsauvage         ###   ########.fr        #
+#    Updated: 2018/01/18 15:22:07 by lsauvage         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,11 +18,13 @@ SRC = srcs/main.c srcs/map.c srcs/reader.c srcs/solver.c srcs/tetrimino.c
 
 OBJ = $(SRC:.c=.o)
 
-INCLUDES = -I libft -I includes
+INCLUDES = -I libft/libft.h -I includes/fillit.h
 
 LIBS = -L libft/ -lft
 
 FLAGS = -Wall -Werror -Wextra
+
+all: $(NAME)
 
 $(NAME): $(OBJ)
 	@make -C libft/ re
@@ -31,7 +33,7 @@ $(NAME): $(OBJ)
 
 $(OBJ):
 	@echo "\033[33m...compiling FILLIT sources...\033[0m"
-	@$(CC) $(FLAGS) -c $(SRC)
+	@$(CC) $(FLAGS) $(INCLUDES) -c $(SRC)
 
 clean:
 	@echo "\033[33m...removing object files... \033[0m"
