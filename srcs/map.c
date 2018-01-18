@@ -6,12 +6,12 @@
 /*   By: lsauvage <lsauvage@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/20 11:25:13 by lsauvage          #+#    #+#             */
-/*   Updated: 2017/12/20 18:46:17 by lsauvage         ###   ########.fr       */
+/*   Updated: 2018/01/18 16:03:53 by lsauvage         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "fillit.h"
+#include "../libft/libft.h"
+#include "../includes/fillit.h"
 
 /*
 ** map_new alloue l'espace memoire pour une nouvelle structure map avec
@@ -28,13 +28,13 @@ t_map	*map_new(int taille)
 	map->size = taille;
 	map->array = (char **)ft_mamalloc(sizeof(char *) * taille);
 	i = 0;
-	while (i < size)
+	while (i < taille)
 	{
 		map->array[i] = ft_strnew(taille);
 		j = 0;
-		while (i < size)
+		while (i < taille)
 		{
-			map->arrat[i][j] = '.';
+			map->array[i][j] = '.';
 			j++;
 		}
 		i++;
