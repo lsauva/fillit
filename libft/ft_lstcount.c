@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd.c                                        :+:      :+:    :+:   */
+/*   ft_lstcount.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsauvage <lsauvage@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/24 15:35:55 by lsauvage          #+#    #+#             */
-/*   Updated: 2018/01/04 15:50:32 by lsauvage         ###   ########.fr       */
+/*   Created: 2018/01/04 14:20:29 by lsauvage          #+#    #+#             */
+/*   Updated: 2018/01/04 14:36:10 by lsauvage         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** DESCRIPTION : Ajoute l’élément new en tête de la liste.
-**
-** PARAM #1 : L’adresse d’un pointeur sur le premier maillon d’une liste.
-** PARAM #2 : Le maillon à ajouter en tête de cette liste.
-**
-** RETOUR : rien.
+** Retourne le nombre d'elements d'une liste.
+** Return the number of elements of a list.
 */
 
-void	ft_lstadd(t_list **alst, t_list *new)
+size_t	ft_lstcount(t_list *lst)
 {
-	if (alst && new)
+	size_t i;
+
+	i = 0;
+	while (lst != NULL)
 	{
-		new->next = *alst;
-		*alst = new;
+		lst = lst->next;
+		i++;
 	}
+	return (i);
 }

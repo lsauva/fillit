@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd.c                                        :+:      :+:    :+:   */
+/*   ft_next_prime.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsauvage <lsauvage@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/24 15:35:55 by lsauvage          #+#    #+#             */
-/*   Updated: 2018/01/04 15:50:32 by lsauvage         ###   ########.fr       */
+/*   Created: 2018/01/04 15:11:25 by lsauvage          #+#    #+#             */
+/*   Updated: 2018/01/04 15:17:58 by lsauvage         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** DESCRIPTION : Ajoute l’élément new en tête de la liste.
+** DESCRIPTION : Retourne le nombre premier suivant nbr.
 **
-** PARAM #1 : L’adresse d’un pointeur sur le premier maillon d’une liste.
-** PARAM #2 : Le maillon à ajouter en tête de cette liste.
+** PARAM #1 : L'entier de depart.
 **
-** RETOUR : rien.
+** RETOUR : le nombre premier suivant nbr, 0 si erreur (limite int MAX).
 */
 
-void	ft_lstadd(t_list **alst, t_list *new)
+int		ft_next_prime(int nbr)
 {
-	if (alst && new)
+	while (++nbr < 2147483647)
 	{
-		new->next = *alst;
-		*alst = new;
+		if (ft_is_prime(nbr))
+			return (nbr);
 	}
+	return (0);
 }

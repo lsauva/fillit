@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd.c                                        :+:      :+:    :+:   */
+/*   ft_isxdigit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lsauvage <lsauvage@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/24 15:35:55 by lsauvage          #+#    #+#             */
-/*   Updated: 2018/01/04 15:50:32 by lsauvage         ###   ########.fr       */
+/*   Created: 2018/01/04 15:39:49 by lsauvage          #+#    #+#             */
+/*   Updated: 2018/01/04 15:48:40 by lsauvage         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** DESCRIPTION : Ajoute l’élément new en tête de la liste.
-**
-** PARAM #1 : L’adresse d’un pointeur sur le premier maillon d’une liste.
-** PARAM #2 : Le maillon à ajouter en tête de cette liste.
-**
-** RETOUR : rien.
+** Check for a hexadecimal digits, that is, one of :
+** 0 1 2 3 4 5 6 7 8 9 a b c d e f A B C D E F
+** Verifie si c est un chiffre hexadecimal, cf. liste au dessus.
 */
 
-void	ft_lstadd(t_list **alst, t_list *new)
+int		ft_isxdigit(int c)
 {
-	if (alst && new)
-	{
-		new->next = *alst;
-		*alst = new;
-	}
+	return (ft_isdigit(c) || (c >= 'a' && c <= 'f') || (c >= 'A' && c <= 'F'));
 }
