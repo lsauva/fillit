@@ -6,12 +6,12 @@
 /*   By: lsauvage <lsauvage@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/08 17:23:49 by lsauvage          #+#    #+#             */
-/*   Updated: 2017/12/20 12:24:05 by lsauvage         ###   ########.fr       */
+/*   Updated: 2018/01/22 15:29:08 by lsauvage         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "fillit.h"
+#include "../libft/libft.h"
+#include "../includes/fillit.h"
 
 /*
 ** Creation d'une structure point. abscisse x, ordonnee y.

@@ -6,7 +6,7 @@
 /*   By: lsauvage <lsauvage@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/28 15:49:03 by lsauvage          #+#    #+#             */
-/*   Updated: 2018/01/03 20:19:59 by lsauvage         ###   ########.fr       */
+/*   Updated: 2018/01/22 15:28:15 by lsauvage         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int		solve_map(t_map *map, t_list *list)
 		point->x = 0;
 		while (point->x < map->size - tetri->width + 1)
 		{
-			if (place(tetri, map, point))
+			if (place(tetri, map, point->x, point->y))
 			{
 				if (solve_map(map, list->next))
 					return (1);

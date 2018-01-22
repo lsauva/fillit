@@ -6,13 +6,13 @@
 /*   By: lsauvage <lsauvage@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/20 16:15:55 by lsauvage          #+#    #+#             */
-/*   Updated: 2017/12/20 18:48:19 by lsauvage         ###   ########.fr       */
+/*   Updated: 2018/01/22 15:27:09 by lsauvage         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include "libft.h"
-#include "fillit.h"
+#include "../libft/libft.h"
+#include "../includes/fillit.h"
 
 /*
 ** Utility function to get min-max values for get_piece.

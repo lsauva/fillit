@@ -6,7 +6,7 @@
 /*   By: lsauvage <lsauvage@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/20 11:25:13 by lsauvage          #+#    #+#             */
-/*   Updated: 2018/01/22 15:14:30 by lsauvage         ###   ########.fr       */
+/*   Updated: 2018/01/22 15:30:05 by lsauvage         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 ** la taille specifiee
 */
 
-t_map	*map_new(size_t taille)
+t_map	*map_new(int taille)
 {
 	t_map	*map;
 	int		i;
@@ -32,7 +32,7 @@ t_map	*map_new(size_t taille)
 	{
 		map->array[i] = ft_strnew(taille);
 		j = 0;
-		while (i < taille)
+		while (j < taille)
 		{
 			map->array[i][j] = '.';
 			j++;
