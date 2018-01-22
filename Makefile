@@ -6,7 +6,7 @@
 #    By: lsauvage <lsauvage@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/30 16:45:25 by lsauvage          #+#    #+#              #
-#    Updated: 2018/01/22 16:56:00 by lsauvage         ###   ########.fr        #
+#    Updated: 2018/01/22 17:51:11 by lsauvage         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,12 +28,13 @@ all: $(NAME)
 
 $(OBJ): %.o: %.c
 	@echo "\033[33m...compiling FILLIT sources...\033[0m"
+	@
 	@$(CC) $(FLAGS) $(INCLUDES) -c $< -o $@
 
 $(NAME): $(OBJ)
 	@make -C libft/
 	@$(CC) -o $(NAME) $(OBJ) $(LIBS)
-	@echo "\033[33m...\033[0m"
+	@echo "\033[32m[OK] Fillit is ready\033[0m"
 
 clean:
 	@echo "\033[33m...removing object files... \033[0m"
