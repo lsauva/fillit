@@ -6,7 +6,7 @@
 /*   By: lsauvage <lsauvage@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/20 11:25:13 by lsauvage          #+#    #+#             */
-/*   Updated: 2018/01/18 16:46:28 by lsauvage         ###   ########.fr       */
+/*   Updated: 2018/01/22 15:14:30 by lsauvage         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,38 @@ int		place(t_etris *tetri, t_map *map, int x, int y)
 		j = 0;
 		while (j < tetri->height)
 		{
-			
+			if (tetri->pos[j][i] == '#' && map->array[y + j][x + i] != '.')
+				return (0);
+			j++;
 		}
+		i++;
 	}
+	set_piece(tetri, map, point_new(x, y), tetri->value);
+	return (1);
+}
+
+/*
+**  Place un tetrimino sur une map a une position, avec le caractere specifie.
+** Pour placer un tetrimino, appeler la fonction avec c = tetri->value.
+** Pour effacer, appeler la fonction avec c = '.'.
+*/
+
+void	set_piece(t_etris *tetri, t_map *map, t_point *point, char c)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while (i < tetri->width)
+	{
+		j = 0;
+		while (j < tetri->height)
+		{
+			if (tetri->pos[j][i] == '#')
+				map->array[point->y + j][point->x + i] = c;
+			j++;
+		}
+		i++;
+	}
+	ft_memdel((void **)&point);
 }
