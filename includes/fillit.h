@@ -6,7 +6,7 @@
 /*   By: lsauvage <lsauvage@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 10:42:09 by lsauvage          #+#    #+#             */
-/*   Updated: 2018/01/18 16:46:59 by lsauvage         ###   ########.fr       */
+/*   Updated: 2018/01/22 15:14:21 by lsauvage         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ t_list			*read_tetri(int fd);
 void			free_map(t_map *map);
 void			print_map(t_map *map);
 t_map			*map_new(size_t size);
-int				place(t_etris *tetris, t_map *map, t_point *point);
+int				place(t_etris *tetris, t_map *map, int x, int y);
 void			set_piece(t_etris *tetris, t_map *map, t_point *point, char c);
 t_map			*solve(t_list *list);
 t_point			*point_new(int x, int y);
