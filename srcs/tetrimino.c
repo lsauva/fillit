@@ -62,7 +62,7 @@ void	free_tetris(t_etris *tetris)
 }
 
 /*
-** Libere l'espacememoire d'une liste cree avec read_tetri
+** Libere l'espace memoire d'une liste cree avec read_tetri
 */
 
 t_list	*free_list(t_list *list)
