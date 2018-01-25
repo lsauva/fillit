@@ -6,14 +6,15 @@
 /*   By: lsauvage <lsauvage@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 10:42:09 by lsauvage          #+#    #+#             */
-/*   Updated: 2018/01/22 15:29:56 by lsauvage         ###   ########.fr       */
+/*   Updated: 2018/01/25 16:56:18 by geargenc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLIT_H
 # define FILLIT_H
 
-#include "../libft/libft.h"
+# include "../libft/libft.h"
+# include <stdio.h>
 
 typedef struct	s_map
 {
