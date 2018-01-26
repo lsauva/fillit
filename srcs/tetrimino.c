@@ -17,7 +17,7 @@
 ** Creation d'une structure point. abscisse x, ordonnee y.
 */
 
-t_point	*point_new(int x, int y)
+t_point		*point_new(int x, int y)
 {
 	t_point	*point;
 
@@ -31,7 +31,7 @@ t_point	*point_new(int x, int y)
 ** Creation d'une structure tetrimino.
 */
 
-t_etris	*tetris_new(char **pos, int width, int height, char value)
+t_etris		*tetris_new(char **pos, int width, int height, char value)
 {
 	t_etris	*tetris;
 
@@ -47,7 +47,7 @@ t_etris	*tetris_new(char **pos, int width, int height, char value)
 ** Libere l'espace memoire d'un tetrimino.
 */
 
-void	free_tetris(t_etris *tetris)
+void		free_tetris(t_etris *tetris)
 {
 	int	y;
 
@@ -65,7 +65,7 @@ void	free_tetris(t_etris *tetris)
 ** Libere l'espace memoire d'une liste cree avec read_tetri
 */
 
-t_list	*free_list(t_list *list)
+t_list		*free_list(t_list *list)
 {
 	t_etris	*tetris;
 	t_list	*next;
