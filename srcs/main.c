@@ -25,7 +25,7 @@ int			main(int ac, char **av)
 		ft_putstr("utilisation : fillit input_file\n ");
 		return (1);
 	}
-	if ((list = read_tetri(open(av[1], O_RDONLY))) == NULL)
+	if ((list = read_tetri(open(av[1], O_RDONLY), NULL, 'A')) == NULL)
 	{
 		ft_putstr("error\n");
 		return (1);

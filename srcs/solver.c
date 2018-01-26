@@ -13,6 +13,18 @@
 #include "../libft/libft.h"
 #include "../includes/fillit.h"
 
+int		ft_check_buff(char *buf)
+{
+	int i;
+
+	i = 0;
+	while (buf[i])
+		i++;
+	if (buf[i - 2] == '\n')
+		return (0);
+	return (1);
+}
+
 /*
 ** Backtracking
 */

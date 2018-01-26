@@ -137,17 +137,15 @@ int			check_counts(char *str, int count)
 ** 4 lines made of 4 chars (+ newline) = 20 chars + sep. newline = 21 chars
 */
 
-t_list		*read_tetri(int fd)
+t_list		*read_tetri(int fd, char *tmp, char cur)
 {
 	char	*buf;
 	int		count;
 	t_list	*list;
 	t_etris	*tetris;
-	char	cur;
 
 	buf = ft_strnew(21);
 	list = NULL;
-	cur = 'A';
 	while ((count = read(fd, buf, 21)) >= 20)
 	{
 		if (check_counts(buf, count) != 0
@@ -158,10 +156,12 @@ t_list		*read_tetri(int fd)
 		}
 		ft_lstadd(&list, ft_lstnew(tetris, sizeof(t_etris)));
 		ft_memdel((void **)&tetris);
+		tmp = ft_strdup(buf);
+		ft_strclr(buf);
 	}
-	ft_memdel((void **)&buf);
-	if (count != 0)
+	if (!ft_check_buff(tmp) || count != 0)
 		return (free_list(list));
+	ft_memdel((void **)&buf);
 	ft_lstrev(&list);
 	return (list);
 }

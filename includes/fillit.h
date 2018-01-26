@@ -36,7 +36,7 @@ typedef struct	s_etris
 	char		value;
 }				t_etris;
 
-t_list			*read_tetri(int fd);
+t_list			*read_tetri(int fd, char *tmp, char cur);
 void			free_map(t_map *map);
 void			print_map(t_map *map);
 t_map			*map_new(int size);
@@ -47,4 +47,5 @@ t_point			*point_new(int x, int y);
 t_etris			*tetris_new(char **pos, int width, int height, char c);
 void			free_tetris(t_etris *tetris);
 t_list			*free_list(t_list *list);
+int				ft_check_buff(char *buf);
 #endif
