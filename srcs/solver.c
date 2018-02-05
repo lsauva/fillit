@@ -6,14 +6,14 @@
 /*   By: lsauvage <lsauvage@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/28 15:49:03 by lsauvage          #+#    #+#             */
-/*   Updated: 2018/01/25 16:55:44 by geargenc         ###   ########.fr       */
+/*   Updated: 2018/02/05 12:33:51 by lsauvage         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
 #include "../includes/fillit.h"
 
-int		ft_check_buff(char *buf)
+/* int		ft_check_buff(char *buf)
 {
 	int i;
 
@@ -23,7 +23,7 @@ int		ft_check_buff(char *buf)
 	if (buf[i - 2] == '\n')
 		return (0);
 	return (1);
-}
+} */
 
 /*
 ** Backtracking

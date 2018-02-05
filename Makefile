@@ -6,7 +6,7 @@
 #    By: lsauvage <lsauvage@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/30 16:45:25 by lsauvage          #+#    #+#              #
-#    Updated: 2018/01/25 16:54:38 by geargenc         ###   ########.fr        #
+#    Updated: 2018/02/05 17:46:36 by lsauvage         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,30 +24,53 @@ LIBS = -L libft/ -lft
 
 FLAGS = -Wall -Werror -Wextra
 
+.SILENT :
+
+# PROGRESS BAR
+T = $(words $(OBJ))
+N = 0
+C = $(words $N)$(eval N := x $N)
+ECHO = "[`expr $C  '*' 100 / $T`%]"
+
+#Colors
+_GREY=\x1b[30m
+_RED=\x1b[31m
+_GREEN=\x1b[32m
+_YELLOW=\x1b[33m
+_BLUE=\x1b[34m
+_PURPLE=\x1b[35m
+_CYAN=\x1b[36m
+_WHITE=\x1b[37m
+_END=\x1b[0m
+
 all: $(NAME)
 
 $(OBJ): %.o: %.c
-	@echo "\033[33m...compiling FILLIT sources...\033[0m"
-	@
-	@$(CC) $(FLAGS) $(INCLUDES) -c $< -o $@
+	$(CC) $(FLAGS) $(INCLUDES) -c $< -o $@
+	printf "%-60b\r" "$(ECHO) $(_PURPLE) Compiling $< $(_END)"
 
 $(NAME): $(OBJ)
-	@make -C libft/
-	@$(CC) -o $(NAME) $(OBJ) $(LIBS)
-	@echo "\033[32m[OK] Fillit is ready\033[0m"
+	make -C libft/
+	$(CC) -o $(NAME) $(OBJ) $(LIBS)
+	echo "$(_GREEN)[OK] $(NAME) is ready $(_END)"
 
 clean:
-	@echo "\033[33m...removing object files... \033[0m"
-	@make -C libft/ clean
-	@/bin/rm -f $(OBJ)
-	@echo "\033[32m[OK]\033[0m \033[33m all .o files are removed ! \033[0m"
+	echo "$(_YELLOW)...removing object files... $(_END)"
+	make -C libft/ clean
+	/bin/rm -f $(OBJ)
+	echo "$(_GREEN)[OK]$(_END) $(_YELLOW) all .o files are removed ! $(_END)"
+
+norme: clean
+	norminette -R CheckForbiddenSourceHeader $(SRC)
+	norminette -R CheckForbiddenSourceHeader includes/fillit.h
+	norminette -R CheckForbiddenSourceHeader libft/*.c libft/*.h
 
 fclean: clean
-	@echo "\033[33m...removing $(NAME)... \033[0m"
-	@make -C libft/ fclean
-	@/bin/rm -f $(NAME)
-	@echo "\033[32m[OK]\033[0m \033[31m$(NAME) is deleted\033[0m"
+	echo "$(_YELLOW)...removing $(NAME)... $(_END)"
+	make -C libft/ fclean
+	/bin/rm -f $(NAME)
+	echo "$(_GREEN)[OK]$(_END) $(_RED)$(NAME) is deleted$(_END)"
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean norme fclean re

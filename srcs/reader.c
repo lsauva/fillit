@@ -6,7 +6,7 @@
 /*   By: lsauvage <lsauvage@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/20 16:15:55 by lsauvage          #+#    #+#             */
-/*   Updated: 2018/01/22 15:27:09 by lsauvage         ###   ########.fr       */
+/*   Updated: 2018/02/05 12:41:28 by lsauvage         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,8 +159,8 @@ t_list		*read_tetri(int fd, char *tmp, char cur)
 		tmp = ft_strdup(buf);
 		ft_strclr(buf);
 	}
-	if (!ft_check_buff(tmp) || count != 0)
-		return (free_list(list));
+	// if (!ft_check_buff(tmp) || count != 0)
+	// 	return (free_list(list));
 	ft_memdel((void **)&buf);
 	ft_lstrev(&list);
 	return (list);
