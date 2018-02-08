@@ -41,6 +41,7 @@ void		min_max(char *str, t_point *min, t_point *max)
 }
 
 /*
+** Lit une piece 
 ** Reads a piece from a valid chunk, allocates a structure and populates it.
 */
 
@@ -71,6 +72,9 @@ t_etris		*get_piece(char *str, char value)
 }
 
 /*
+** Vérifie le nombre de connections entre les pieces, si on a 6 ou 8 conn.
+** le tetrimino est valide. Sinon, notre tetrimino n'est pas contigu.
+**
 ** Checks connection counts, if we have 6 or 8 connections, the tetrimino is
 ** valid. Otherwise, our tetrimino is not contiguous.
 */
@@ -101,6 +105,8 @@ int			check_connection(char *str)
 }
 
 /*
+** Verifie que le nombre de caracteres et la forme de la piece sont valides.
+**
 ** Checks character counts and that chunk format is valid.
 */
 
@@ -132,6 +138,11 @@ int			check_counts(char *str, int count)
 }
 
 /*
+** Lit les tetriminos depuis le file descriptor et les ajoute dans une liste.
+** On utilise une taille de 21 pour la lecture piece par piece, car elles
+** comprennent 4 lignes de 4 caracteres (+ newline) = 20 car + newline de fin
+** = 21 caracteres.
+**
 ** Read tetriminos from fd and put them in a list.
 ** We use 21 sized reads to read piece by piece since there are
 ** 4 lines made of 4 chars (+ newline) = 20 chars + sep. newline = 21 chars
