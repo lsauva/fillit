@@ -6,7 +6,7 @@
 /*   By: lsauvage <lsauvage@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/20 16:15:55 by lsauvage          #+#    #+#             */
-/*   Updated: 2018/02/13 12:31:53 by lsauvage         ###   ########.fr       */
+/*   Updated: 2018/02/13 17:14:13 by lsauvage         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,8 @@ t_etris		*get_piece(char *str, char value)
 
 /*
 ** Verifie le nombre de connections, si on a 6 ou 8 connections, le tetrimino
-** est valide. Sinon la piece
+** est valide. Sinon la piece n'est pas contigu.
+**
 ** Checks connection counts, if we have 6 or 8 connections, the tetrimino is
 ** valid. Otherwise, our tetrimino is not contiguous.
 */
@@ -107,6 +108,8 @@ int			check_connection(char *str)
 }
 
 /*
+** Verifie le nombre de caracteres et le format.
+**
 ** Checks character counts and that chunk format is valid.
 */
 
@@ -138,6 +141,11 @@ int			check_counts(char *str, int count)
 }
 
 /*
+** Lit les tetriminos depuis un file descriptor et les place dans une liste.
+** On utilise une taille de 21 pour lire piece par piece les tetriminos car
+** ils sont composes de 4 lignes de 4 caracteres + \n donc 4*5=20 + \n de
+** separation. = 21 caracteres.
+**
 ** Read tetriminos from fd and put them in a list.
 ** We use 21 sized reads to read piece by piece since there are
 ** 4 lines made of 4 chars (+ newline) = 20 chars + sep. newline = 21 chars
