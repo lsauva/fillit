@@ -6,7 +6,7 @@
 #    By: lsauvage <lsauvage@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/30 16:45:25 by lsauvage          #+#    #+#              #
-#    Updated: 2018/02/13 13:03:27 by lsauvage         ###   ########.fr        #
+#    Updated: 2018/02/13 17:43:20 by lsauvage         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,6 @@ LIBS = -L libft/ -lft
 
 FLAGS = -Wall -Werror -Wextra
 
-.SILENT :
 
 # PROGRESS BAR
 T = $(words $(OBJ))
