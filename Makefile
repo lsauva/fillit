@@ -6,7 +6,7 @@
 #    By: lsauvage <lsauvage@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/30 16:45:25 by lsauvage          #+#    #+#              #
-#    Updated: 2018/02/05 17:46:36 by lsauvage         ###   ########.fr        #
+#    Updated: 2018/02/13 13:03:27 by lsauvage         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,6 +50,7 @@ $(OBJ): %.o: %.c
 	printf "%-60b\r" "$(ECHO) $(_PURPLE) Compiling $< $(_END)"
 
 $(NAME): $(OBJ)
+	echo "\n"
 	make -C libft/
 	$(CC) -o $(NAME) $(OBJ) $(LIBS)
 	echo "$(_GREEN)[OK] $(NAME) is ready $(_END)"
