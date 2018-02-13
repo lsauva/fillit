@@ -6,7 +6,7 @@
 /*   By: lsauvage <lsauvage@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/20 16:15:55 by lsauvage          #+#    #+#             */
-/*   Updated: 2018/02/05 12:41:28 by lsauvage         ###   ########.fr       */
+/*   Updated: 2018/02/13 12:31:53 by lsauvage         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include "../includes/fillit.h"
 
 /*
+** Fonction pour obtenir les valeurs min-max pour get_piece
+**
 ** Utility function to get min-max values for get_piece.
 */
 
@@ -41,6 +43,8 @@ void		min_max(char *str, t_point *min, t_point *max)
 }
 
 /*
+** Lit une piece valide, alloue une structure et la remplit.
+**
 ** Reads a piece from a valid chunk, allocates a structure and populates it.
 */
 
@@ -71,6 +75,8 @@ t_etris		*get_piece(char *str, char value)
 }
 
 /*
+** Verifie le nombre de connections, si on a 6 ou 8 connections, le tetrimino
+** est valide. Sinon la piece
 ** Checks connection counts, if we have 6 or 8 connections, the tetrimino is
 ** valid. Otherwise, our tetrimino is not contiguous.
 */
@@ -159,8 +165,11 @@ t_list		*read_tetri(int fd, char *tmp, char cur)
 		tmp = ft_strdup(buf);
 		ft_strclr(buf);
 	}
-	// if (!ft_check_buff(tmp) || count != 0)
-	// 	return (free_list(list));
+	if (ft_strlen(tmp) != 20)
+	{
+		ft_memdel((void **)&buf);
+		return (free_list(list));
+	}
 	ft_memdel((void **)&buf);
 	ft_lstrev(&list);
 	return (list);
