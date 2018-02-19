@@ -6,7 +6,7 @@
 /*   By: lsauvage <lsauvage@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 10:42:09 by lsauvage          #+#    #+#             */
-/*   Updated: 2018/01/25 16:56:18 by geargenc         ###   ########.fr       */
+/*   Updated: 2018/02/19 11:23:42 by lsauvage         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct	s_etris
 	char		value;
 }				t_etris;
 
-t_list			*read_tetri(int fd, char *tmp, char cur);
+t_list			*read_tetri(int fd, char *tmp, char cur, t_list *list);
 void			free_map(t_map *map);
 void			print_map(t_map *map);
 t_map			*map_new(int size);
