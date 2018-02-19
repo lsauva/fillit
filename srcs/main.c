@@ -6,7 +6,7 @@
 /*   By: lsauvage <lsauvage@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/08 16:59:32 by lsauvage          #+#    #+#             */
-/*   Updated: 2018/01/25 16:43:51 by geargenc         ###   ########.fr       */
+/*   Updated: 2018/02/19 11:23:25 by lsauvage         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int			main(int ac, char **av)
 		ft_putstr("utilisation : fillit input_file\n ");
 		return (1);
 	}
-	if ((list = read_tetri(open(av[1], O_RDONLY), NULL, 'A')) == NULL)
+	if ((list = read_tetri(open(av[1], O_RDONLY), NULL, 'A', NULL)) == NULL)
 	{
 		ft_putstr("error\n");
 		return (1);
