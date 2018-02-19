@@ -6,7 +6,7 @@
 /*   By: lsauvage <lsauvage@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/20 16:15:55 by lsauvage          #+#    #+#             */
-/*   Updated: 2018/02/13 17:14:13 by lsauvage         ###   ########.fr       */
+/*   Updated: 2018/02/19 11:25:19 by lsauvage         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,15 +151,13 @@ int			check_counts(char *str, int count)
 ** 4 lines made of 4 chars (+ newline) = 20 chars + sep. newline = 21 chars
 */
 
-t_list		*read_tetri(int fd, char *tmp, char cur)
+t_list		*read_tetri(int fd, char *tmp, char cur, t_list *list)
 {
 	char	*buf;
 	int		count;
-	t_list	*list;
 	t_etris	*tetris;
 
 	buf = ft_strnew(21);
-	list = NULL;
 	while ((count = read(fd, buf, 21)) >= 20)
 	{
 		if (check_counts(buf, count) != 0
@@ -173,11 +171,9 @@ t_list		*read_tetri(int fd, char *tmp, char cur)
 		tmp = ft_strdup(buf);
 		ft_strclr(buf);
 	}
+	(ft_strlen(tmp) != 20) ? ft_memdel((void **)&buf) : 0;
 	if (ft_strlen(tmp) != 20)
-	{
-		ft_memdel((void **)&buf);
 		return (free_list(list));
-	}
 	ft_memdel((void **)&buf);
 	ft_lstrev(&list);
 	return (list);
